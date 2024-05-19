@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            let data = fetch("https://fakestoreapi.com/products")
+    data.then((e) => e.json()).then((e) => {
+        let res = e;
+        let container = document.createElement("div");
+        container.style.display = "flex";
+        container.style.flexWrap = "wrap";  
+        document.body.appendChild(container);
+        for (let i of res) {
+            console.log(i);
+            let div1 = document.createElement("div");
+            div1.style.width = "250px";
+            div1.style.height = "300px";
+            div1.style.marginTop = "10px";
+            div1.style.marginRight = "10px"; 
+            div1.style.borderRadius="10px" 
+            div1.style.border="2px solid"
+            let p4=document.createElement("p")
+            p4.style.marginLeft="80px"
+            p4.style.fontSize="large"
+            let p1=document.createElement("img")
+            p1.style.height="100px"
+            p1.style.width="100px"
+            p1.style.marginLeft="80px"
+            p1.style.marginTop="10px"
+            let p2 = document.createElement("p");
+            p2.style.marginLeft="50px"
+            p2.style.marginTop="-3px"
+            let p3=document.createElement("p");
+            p3.style.marginLeft="100px"
+           
+            p4.innerHTML=i.category;
+             p1.src=i.image;
+            p2.innerHTML = i.title;
+            p3.innerHTML=i.price;
+            div1.appendChild(p4);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+           
+            container.appendChild(div1); 
+          
+        }
+    });
+
+
+    </script>
+</body>
+</html>
